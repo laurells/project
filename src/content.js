@@ -9,7 +9,7 @@ function dynamicClothingSection(ob) {
 
   let boxLink = document.createElement("a");
   // boxLink.href = '#'
-  boxLink.href = "/contentDetails.html?" + ob.id;
+  boxLink.href = "./contentDetails.html?" + ob.id;
   // console.log('link=>' + boxLink);
 
   let imgTag = document.createElement("img");
@@ -29,7 +29,7 @@ function dynamicClothingSection(ob) {
   h4.appendChild(h4Text);
 
   let h2 = document.createElement("h2");
-  let h2Text = document.createTextNode("rs  " + ob.price);
+  let h2Text = document.createTextNode("$  " + ob.price);
   h2.appendChild(h2Text);
 
   boxDiv.appendChild(boxLink);
@@ -62,7 +62,7 @@ httpRequest.onreadystatechange = function() {
       // console.log('call successful');
       contentTitle = JSON.parse(this.responseText);
       if (document.cookie.indexOf(",counter=") >= 0) {
-        var counter = document.cookie.split(",")[1].split("=")[1];
+        let counter = document.cookie.split(",")[1].split("=")[1];
         document.getElementById("badge").innerHTML = counter;
       }
       for (let i = 0; i < contentTitle.length; i++) {
